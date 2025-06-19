@@ -1,11 +1,9 @@
-[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-2e0aaae1b6195c2367325f4f02e2d04e9abb55f0b24a779b69b11b9e10269abc.svg)](https://classroom.github.com/online_ide?assignment_repo_id=19707556&assignment_repo_type=AssignmentRepo)
-# Express.js RESTful API Assignment
+# Express.js PRODUCT MANAGEMENT RESTful API 
+ A RESTful API using Express.js, implementing proper routing, middleware, and error handling  for managing products in an inventory.
 
-This assignment focuses on building a RESTful API using Express.js, implementing proper routing, middleware, and error handling.
+##  Overview
 
-## Assignment Overview
 
-You will:
 1. Set up an Express.js server
 2. Create RESTful API routes for a product resource
 3. Implement custom middleware for logging, authentication, and validation
@@ -37,7 +35,16 @@ You will:
 - npm or yarn
 - Postman, Insomnia, or curl for API testing
 
+
+
+
 ## API Endpoints
+
+Base URL: http://localhost:3000
+Auth Header:api-token :   12345-abcde
+
+  ###🔐 Authentication
+All endpoints require this header:
 
 The API will have the following endpoints:
 
@@ -46,16 +53,51 @@ The API will have the following endpoints:
 - `POST /api/products`: Create a new product
 - `PUT /api/products/:id`: Update a product
 - `DELETE /api/products/:id`: Delete a product
+-  `GET /products/search           :Search products by name
+-  ` GET /products/stats           :Get product count by category
 
-## Submission
 
-Your work will be automatically submitted when you push to your GitHub Classroom repository. Make sure to:
 
-1. Complete all the required API endpoints
-2. Implement the middleware and error handling
-3. Document your API in the README.md
-4. Include examples of requests and responses
+ 1.POST /products – Create Product
+Request Body:
 
+json
+
+{
+  "name": "Laptop",
+  "description": "High-performance laptop",
+  "price": 1200,
+  "category": "electronics",
+  "inStock": true
+}
+Response:
+json
+{
+  "id": "1",
+  "name": "Laptop",
+  "description": "High-performance laptop",
+  "price": 1200,
+  "category": "electronics",
+  "inStock": true
+}
+
+2.GET /products/stats – Product Count by Category
+
+GET /products/stats
+Response:
+{
+  "electronics": 2,
+  "kitchen": 1
+}
+
+## Technologies Used
+-Node.js
+
+-Express.js
+
+-In-memory storage (or MongoDB)
+
+-Insomnia for testing
 ## Resources
 
 - [Express.js Documentation](https://expressjs.com/)
